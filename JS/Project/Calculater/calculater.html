@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            width: 400px;
+            padding: 20px;
+            border: 3px solid black;
+            background-color: rgb(231, 15, 101);
+            border-radius: 10px;
+        }
+        .number {
+            width:400px;
+            height: 50px;
+            margin: 10px 0;
+            padding: 5px;
+            font-size: 24px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .buttons input {
+            width:150px;
+            height: 50px;
+            margin: 5px 0;
+            font-size: 18px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        .buttons input:hover {
+            background-color: #444141;
+        }
+        .result {
+            width:250px;
+            height: 50px;
+            margin: 10px 0;
+            padding: 5px;
+            font-size: 24px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="number" id="num1" class="number" placeholder="Enter first number">
+        <input type="number" id="num2" class="number" placeholder="Enter second number">
+        <div class="buttons">
+            <input type="button" id="add" value="Add">
+            <input type="button" id="sub" value="Subtract">
+            <input type="button" id="div" value="Divide">
+            <input type="button" id="mul" value="Multiply">
+            <input type="button" id="module" value="Modulus">
+        </div>
+        <input type="number" id="result" class="result"  placeholder="Result">
+    </div>
+    <script>
+           const num1=document.getElementById("num1")
+           const num2=document.getElementById("num2")
+           const result=document.getElementById("result") 
+           document.getElementById("add").addEventListener("click",()=>{
+            let n1=parseFloat(num1.value)
+            let n2=parseFloat(num2.value)
+           
+            result.value=n1+n2
+           })
+           document.getElementById("sub").addEventListener("click",()=>{
+            let n1=parseFloat(num1.value)
+            let n2=parseFloat(num2.value)
+           
+                result.value=n1-n2
+           })
+           document.getElementById("div").addEventListener("click",()=>{
+            let n1=parseFloat(num1.value)
+            let n2=parseFloat(num2.value)
+           
+            result.value=n1/n2
+           })
+           document.getElementById("mul").addEventListener("click",()=>{
+            let n1=parseFloat(num1.value)
+            let n2=parseFloat(num2.value)
+           
+            result.value=n1*n2
+           })
+           document.getElementById("module").addEventListener("click",()=>{
+            let n1=parseFloat(num1.value)
+            let n2=parseFloat(num2.value)
+           
+            result.value=n1%n2
+           })
+    </script>
+</body>
+</html>

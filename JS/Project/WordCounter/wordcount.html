@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            width: 700px;
+            height: 600px;
+            border: 4px solid blueviolet;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        textarea {
+           
+            border-width: 4px;
+            margin-left: 45px;
+            box-sizing: border-box;
+        }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .buttons input {
+            width: 150px;
+            height: 50px;
+            margin: 5px 0;
+            font-size: 18px;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buttons input:hover {
+            background-color: #444141;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <div class="two">
+            <textarea rows="10" cols="80" id="message"></textarea><br><br>
+            <div class="buttons">
+                <input type="button" id="lowercase" value="lowercase">
+                <input type="button" id="uppercase" value="uppercase">
+                <input type="button" id="copy" value="copy">
+                <input type="button" id="remove_extra_space" value="remove extra space">
+                <input type="button" id="clear" value="clear">
+            </div>
+        </div>
+        <textarea rows="10" cols="80" id="preview"></textarea>
+    </div>
+    <script>
+        var textarea = document.getElementById("message");
+        var preview = document.getElementById("preview");
+
+        document.getElementById("lowercase").addEventListener("click", () => {
+            var lowercasetext = textarea.value.toLowerCase();
+            preview.value = lowercasetext;
+        });
+
+        document.getElementById("uppercase").addEventListener("click", () => {
+            var uppercasetext = textarea.value.toUpperCase();
+            preview.value = uppercasetext;
+        });
+
+        document.getElementById("copy").addEventListener("click", () => {
+            preview.value = textarea.value;
+        });
+
+        document.getElementById("remove_extra_space").addEventListener("click", () => {
+            var cleanedText = textarea.value.replace(/\s+/g, ' ').trim();
+            textarea.value = cleanedText; // Update the original textarea
+            preview.value = cleanedText;  
+        });
+
+        document.getElementById("clear").addEventListener("click", () => {
+            textarea.value = "";  // Clear the original textarea
+            preview.value = "";   // Clear the preview textarea
+        });
+    </script>
+</body>
+</html>
